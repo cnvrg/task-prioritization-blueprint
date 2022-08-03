@@ -1,0 +1,31 @@
+---
+title: Zendesk Connector
+version: 1.0.0 
+description: "Returns the subjects of open tickets in zendesk" 
+
+author: "cnvrg"
+author_email: "info@cnvrg.io"
+
+tags:
+  - connector
+requirements:
+  cpu: 2
+  memory: 2
+  gpu: 0
+  hpu: 0
+  
+image: cnvrg:v5.0
+language: python3
+
+arguments:
+  - key: domain
+    type: categorical
+    values: ''
+  - key: email
+    type: categorical
+    values:
+      - ''
+  - key: password
+    type: categorical
+    values:
+      - ''

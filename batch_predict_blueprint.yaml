@@ -1,0 +1,39 @@
+---
+title: Task Prioritization Batch
+version: 1.0.0 
+description: Classifies given texts and creates a csv file with the topic, sentiment and score of each text.
+
+author: "cnvrg"
+author_email: "info@cnvrg.io"
+
+tags:
+  - training
+
+tasks:
+  - title: Batch Predict
+    top: 300
+    left: 400 
+    
+    type: exec
+    
+    library: task-prioritization-batch
+    library_version: 1.0.0
+
+    command: python3 batch_predict.py
+    
+    requirements:
+      cpu: 3.5
+      memory: 7.5
+      gpu: 0
+      hpu: 0
+      
+    image: python:3.6.9
+    language: python3
+  
+    params:
+    - key: batch_input
+      type: 'discrete'
+      values: 
+        - ''
+
+relations: []

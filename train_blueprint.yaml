@@ -1,0 +1,122 @@
+---
+title: Task Prioritization Train
+version: 1.0.0 
+description: Train and deploy a model that classifies given texts by their topic.
+long_description: Train and deploy a model that detects the topic of a given text  based on your custom data.
+
+author: "cnvrg"
+author_email: "info@cnvrg.io"
+
+tags:
+  - training
+
+tasks:
+  - title: S3 Connector
+    top: 300
+    left: 150
+
+    # Type must be according to the flow task conventions (data, exec, deploy)
+    type: exec
+
+    # The library data
+    library: s3-connector
+    library_version: 1.0.0
+
+    # The flattened library parameters (in this case we have training library)
+    command: python s3-connector.py
+
+    requirements:
+      cpu: 3.5
+      memory: 7
+      gpu: 0
+      hpu: 0
+
+    image: cnvrg:v5.0
+    language: python3
+
+    # The "arguments" property changes to "params", rest remains the same.
+    # Params in the blueprint yaml can be used to override the arguments in the library.
+    params:
+      - key: endpoint
+        type: 'categorical'
+        values:
+          - 'http://s3.amazonaws.com download'
+      - key: bucketname
+        type: 'categorical'
+        values:
+          - 'libhub-readme'
+      - key: localdir
+        type: 'categorical'
+        values:
+          - '/cnvrg'
+      - key: prefix
+        type: 'categorical'
+        values:
+          - 'text_classification_data/'
+
+  - title: Train
+    top: 300
+    left:  400
+    
+    type: exec
+    
+    library: task-prioritization-train
+    library_version: 1.0.0
+    
+    command: python3 retrain_intents_model.py
+    
+    requirements: 
+      cpu: 3.5
+      memory: 7.5
+      gpu: 0
+      hpu: 0
+      
+    image: python:3.6.9
+    language: python3
+  
+    params:
+    - key: data
+      type: 'categorical'
+      values: 
+        - '/input/s3_connector/text_classification_data/text_classification_data.csv'
+      
+  - title: Inference
+    top: 400
+    left: 500
+    
+    type: deploy
+    
+    library: task-prioritization-inference
+    library-version: 1.0.0
+    
+    kind: webservice 
+    
+    requirements: 
+      cpu: 3.5
+      memory: 7.5
+      gpu: 0
+      hpu: 0
+      
+    image: python:3.6.9
+    language: python3
+    accept_files: false
+  
+    file_name: predict.py 
+    function_name: predict
+    prep_file: '' 
+    prep_function: '' 
+    input_example:
+      input_text: 'My credit card is not working'
+    input_schema:
+      input_text: text
+    output_schema:
+      score: number
+      sentiment: text
+      topic: text
+
+
+relations:
+- from: S3 Connector
+  to: Train
+- from: Train
+  to: Inference

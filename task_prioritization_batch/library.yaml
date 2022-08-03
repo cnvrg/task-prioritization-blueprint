@@ -1,0 +1,25 @@
+---
+title: Task Prioritization Batch
+version: 1.0.0 
+icon: python
+
+tags:
+  - training
+
+command: python3 batch_predict.py
+
+requirements:
+  cpu: 3.5
+  memory: 7.5
+  gpu: 0
+  hpu: 0
+
+image: python:3.6.9
+
+language: python3
+
+arguments:
+  - key: batch_input
+    type: 'discrete'
+    values:
+      - ''
