@@ -15,4 +15,4 @@ An example json response from the endpoint is given below:
 ```
 
 - If you would like to use your own trained model you can do so by adding the path to your model in the environment variable 'MODEL_FILE',  
-For example: '/input/model.pt'. 
+For example: '/input/<TASK_NAME>/model.pt'. 
