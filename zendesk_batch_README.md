@@ -1,5 +1,5 @@
 # Zendesk Task Prioritization
-You can use this blueprint to classify your zendesk tickets by pre-defined categories.
+You can use this blueprint to classify your zendesk tickets' subjects by pre-defined categories.
 1. Click on the Use Blueprint button
 2. You will be redirected to your blueprint flow page
 3. In the flow, edit the following tasks to provide your data:
