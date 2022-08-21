@@ -16,10 +16,19 @@ def batch_predict(input_file):
     texts = json.load(f)
     preds = []
     for t in texts:
+        id = ""
+        if type(t) is dict:
+            id = t["id"]
+            t = t["text"]
+
         text = {'input_text': t}
         pred = predict.predict(text)
-        pred["text"] = t
-        preds.append(pred)
+        row = {}
+        if id:
+            row["id"] = id
+        row["text"] = t
+        row.update(pred)
+        preds.append(row)
     with open(cnvrg_workdir+'/batch.csv', 'w', encoding='utf8', newline='') as output_file:
         dw = csv.DictWriter(output_file,
                             fieldnames=preds[0].keys(),
