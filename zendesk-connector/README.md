@@ -6,6 +6,8 @@ This library is made to connect to Zendesk and retrieve the subjects of open tic
 
 ```--password``` - string, required. The password for the Zendesk account.
 
+```--field``` - string, required. The field that will be extracted from the tickets. The default is the subject of the ticket. 
+
 ## Authentication
 In order to access the tickets the admin needs to enable password access.
 In Admin Center, click the Apps and integrations icon in the sidebar, then select APIs > Zendesk APIs.

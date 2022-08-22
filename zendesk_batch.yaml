@@ -1,7 +1,8 @@
 ---
 title: Zendesk Task Prioritization
-version: 1.0.0 
-description: Classifies given texts and creates a csv file with the topic, sentiment and score of each text.
+version: 1.0.0
+description: Assigns a topic and sentiment score to text in Zendesk tickets.
+long_description: Assigns a topic and sentiment score to text in Zendesk tickets, and provides this output as a csv. The combination of Topics and Sentiment can be used to prioritize tasks.
 
 author: "cnvrg"
 author_email: "info@cnvrg.io"
