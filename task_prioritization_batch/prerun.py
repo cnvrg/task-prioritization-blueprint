@@ -2,7 +2,7 @@ import requests
 import os
 import pathlib
 
-BASE_FOLDER_URL = "https://blueprints-data.s3.us-west-2.amazonaws.com/model_files/task_prioritization/"
+BASE_FOLDER_URL = "https://libhub-readme.s3.us-west-2.amazonaws.com/model_files/task_prioritization/"
 FILES = ['intents_model.pt', 'tokenizer.pickle', 'sentiment_model.h5']
 
 
