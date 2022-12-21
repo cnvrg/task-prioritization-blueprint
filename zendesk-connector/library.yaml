@@ -29,3 +29,7 @@ arguments:
     type: categorical
     values:
       - ''
+  - key: field
+    type: categorical
+    values:
+      - ''

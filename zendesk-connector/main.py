@@ -39,9 +39,9 @@ headers["Authorization"] = "Basic "+str(base64_bytes)[2:-1]
 response = requests.get('https://'+domain+'.zendesk.com/api/v2/tickets.json', headers=headers)
 
 
-tickets =json.loads(response.content.decode("utf-8"))["tickets"]
+tickets =json.loads(response.content.decode("utf-8"))
 
 
-subjects = [t[field] for t in tickets]
+subjects = [t[field] for t in tickets['tickets']]
 with open(cnvrg_workdir + '/tickets.json', 'w') as outfile:
 	json.dump(subjects, outfile)
