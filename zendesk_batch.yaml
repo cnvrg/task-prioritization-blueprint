@@ -1,8 +1,8 @@
 ---
 title: Zendesk Task
 version: 1.0.0
-description: Assigns a topic and sentiment score to text in Zendesk tickets.
-long_description: Assigns a topic and sentiment score to text in Zendesk tickets, and provides this output as a csv. The combination of Topics and Sentiment can be used to prioritize tasks.
+description: Run in batch mode a pretrained task-classifier model on Zendesk data to create a CSV file that maps each input task to its category and priority.
+long_description: Run in batch mode a pretrained task-classifier model on Zendesk data, which connects to the Zendesk API, retrieves the open tickets, and creates a CSV file that maps each input task to its category and priority.
 
 author: "cnvrg"
 author_email: "info@cnvrg.io"
