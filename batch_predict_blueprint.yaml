@@ -1,7 +1,7 @@
 ---
 title: Task Prioritization Batch
 version: 1.0.0 
-description: Classifies given texts and creates a csv file with the topic, sentiment and score of each text.
+description: Run in batch mode a pretrained task-classifier model on custom data, which classifies tasks within given textual data and creates a CSV file that maps each input task to its category and priority.
 
 author: "cnvrg"
 author_email: "info@cnvrg.io"

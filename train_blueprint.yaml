@@ -1,8 +1,8 @@
 ---
 title: Task Prioritization Train
 version: 1.0.0 
-description: Train and deploy a model that classifies given texts by their topic.
-long_description: Train and deploy a model that detects the topic of a given text  based on your custom data.
+description: Train a model on custom data in the form of text sentences (tasks) and their categories to classify and prioritize the tasks
+long_description: Train a model on custom data in the form of text sentences (tasks) and their categories, and deploy and endpoint, which classifies and prioritizes tasks within the given textual data.
 
 author: "cnvrg"
 author_email: "info@cnvrg.io"
