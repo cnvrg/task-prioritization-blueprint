@@ -8,7 +8,8 @@ import sys
 scripts_dir = pathlib.Path(__file__).parent.resolve()
 # model_path = os.path.join(scripts_dir, 'model.h5')
 sys.path.append(str(scripts_dir))
-
+BASE_FOLDER_URL = "https://libhub-readme.s3.us-west-2.amazonaws.com/model_files/task_prioritization/"
+FILES = ['intents_model.pt', 'tokenizer.pickle', 'sentiment_model.h5']
 # prerun to fetch model files
 from prerun import download_model_files
 download_model_files()
